@@ -1,0 +1,7 @@
+.open > ul {
+  display: block !important;
+}
+
+a {
+  cursor: pointer;
+}

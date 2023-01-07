@@ -16,18 +16,26 @@
             "outputPath": "dist/ecommerce-client",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "src/styles.css"
+              "./src/assets/themes/bootshop/bootstrap.min.css",
+              "./src/assets/themes/css/base.css",
+              "./src/assets/themes/css/bootstrap-responsive.min.css",
+              "./src/assets/themes/css/font-awesome.css",
+              "./src/assets/themes/js/google-code-prettify/prettify.css",
+              "./src/assets/themes/js/google-code-prettify/prettify.css",
+              "./src/assets/themes/switch/themeswitch.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./src/assets/themes/js/jquery.js",
+              "./src/assets/themes/js/bootstrap.min.js",
+              "./src/assets/themes/js/google-code-prettify/prettify.js",
+              "./src/assets/themes/js/bootshop.js",
+              "./src/assets/themes/js/jquery.lightbox-0.5.js",
+              "./src/assets/themes/switch/theamswitcher.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -77,18 +85,10 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.css"],
             "scripts": []
           }
         }
