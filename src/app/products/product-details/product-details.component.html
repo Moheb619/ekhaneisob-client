@@ -6,20 +6,18 @@
       <!-- Sidebar end=============================================== -->
       <div class="span9">
         <ul class="breadcrumb">
-          <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+          <li><a routerLink="/">Home</a> <span class="divider">/</span></li>
           <li>
-            <a href="products.html">Products</a> <span class="divider">/</span>
+            <a routerLink="/products">Products</a>
+            <span class="divider">/</span>
           </li>
-          <li class="active">product Details</li>
+          <li class="active">Product Details</li>
         </ul>
         <div class="row">
           <div id="gallery" class="span3">
-            <a
-              href="./../../../assets/themes/images/products/large/f1.jpg"
-              title="Fujifilm FinePix S2950 Digital Camera"
-            >
+            <a title="Fujifilm FinePix S2950 Digital Camera">
               <img
-                src="./../../../assets/themes/images/products/large/3.jpg"
+                [src]="selectedProductImage"
                 style="width: 100%"
                 alt="Fujifilm FinePix S2950 Digital Camera"
               />
@@ -28,7 +26,11 @@
               <div class="carousel-inner">
                 <div class="item active">
                   <a
-                    href="./../../../assets/themes/images/products/large/f1.jpg"
+                    (click)="
+                      selectedProductImageFunction(
+                        './../../../assets/themes/images/products/large/f1.jpg'
+                      )
+                    "
                   >
                     <img
                       style="width: 29%"
@@ -36,7 +38,11 @@
                       alt=""
                   /></a>
                   <a
-                    href="./../../../assets/themes/images/products/large/f2.jpg"
+                    (click)="
+                      selectedProductImageFunction(
+                        './../../../assets/themes/images/products/large/f2.jpg'
+                      )
+                    "
                   >
                     <img
                       style="width: 29%"
@@ -44,7 +50,11 @@
                       alt=""
                   /></a>
                   <a
-                    href="./../../../assets/themes/images/products/large/f3.jpg"
+                    (click)="
+                      selectedProductImageFunction(
+                        './../../../assets/themes/images/products/large/f3.jpg'
+                      )
+                    "
                   >
                     <img
                       style="width: 29%"
@@ -102,7 +112,7 @@
             <hr class="soft" />
             <form class="form-horizontal qtyFrm">
               <div class="control-group">
-                <label class="control-label"><span>$222.00</span></label>
+                <label class="control-label"><span>৳222.00</span></label>
                 <div class="controls">
                   <input type="number" class="span1" placeholder="Qty." />
                   <button
@@ -282,7 +292,7 @@
                       </div>
                       <div class="span3 alignR">
                         <form class="form-horizontal qtyFrm">
-                          <h3>$222.00</h3>
+                          <h3>৳222.00</h3>
                           <label class="checkbox">
                             <input type="checkbox" /> Adds product to compair </label
                           ><br />
@@ -327,7 +337,7 @@
                       </div>
                       <div class="span3 alignR">
                         <form class="form-horizontal qtyFrm">
-                          <h3>$222.00</h3>
+                          <h3>৳222.00</h3>
                           <label class="checkbox">
                             <input type="checkbox" /> Adds product to compair </label
                           ><br />
@@ -372,7 +382,7 @@
                       </div>
                       <div class="span3 alignR">
                         <form class="form-horizontal qtyFrm">
-                          <h3>$222.00</h3>
+                          <h3>৳222.00</h3>
                           <label class="checkbox">
                             <input type="checkbox" /> Adds product to compair </label
                           ><br />
@@ -417,7 +427,7 @@
                       </div>
                       <div class="span3 alignR">
                         <form class="form-horizontal qtyFrm">
-                          <h3>$222.00</h3>
+                          <h3>৳222.00</h3>
                           <label class="checkbox">
                             <input type="checkbox" /> Adds product to compair </label
                           ><br />
@@ -463,7 +473,7 @@
                       </div>
                       <div class="span3 alignR">
                         <form class="form-horizontal qtyFrm">
-                          <h3>$222.00</h3>
+                          <h3>৳222.00</h3>
                           <label class="checkbox">
                             <input type="checkbox" /> Adds product to compair </label
                           ><br />
@@ -508,7 +518,7 @@
                       </div>
                       <div class="span3 alignR">
                         <form class="form-horizontal qtyFrm">
-                          <h3>$222.00</h3>
+                          <h3>৳222.00</h3>
                           <label class="checkbox">
                             <input type="checkbox" /> Adds product to compair </label
                           ><br />
