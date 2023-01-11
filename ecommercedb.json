@@ -1,0 +1,21 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "product-name": "Computer",
+      "product-quantity": 5,
+      "product-price": 10000,
+      "rating": 3,
+      "featured": true,
+      "created-date": "2012-04-23T18:25:43.511Z"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "full-name": "Saeed Hossain Moheb",
+      "email": "6moheb19@gmail.com",
+      "password": "Moheb"
+    }
+  ]
+}
