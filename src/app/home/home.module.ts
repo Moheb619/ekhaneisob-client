@@ -6,9 +6,10 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 @NgModule({
-  declarations: [HomeComponent, LoginComponent, CartComponent],
+  declarations: [HomeComponent, LoginComponent, CartComponent, ForgetPasswordComponent],
   imports: [CommonModule, HomeRoutingModule, CommonComponentsModule],
 })
 export class HomeModule {}
