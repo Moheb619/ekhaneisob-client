@@ -7,14 +7,17 @@
     >
   </div>
   <ul id="sideManu" class="nav nav-tabs nav-stacked">
-    <li *ngFor="let category of CATEGORY_DATA">
-      <a (click)="openedSidebarFunction('electronics')">
+    <li
+      *ngFor="let category of CATEGORY_DATA"
+      [ngClass]="openSidebar == category.name ? 'open' : ''"
+    >
+      <a (click)="openedSidebarFunction(category.name)">
         {{ category.name }}
         <span *ngIf="category.sub_category.length > 0"
           >[{{ category.sub_category.length }}]</span
         ></a
       >
-      <ul>
+      <ul style="display: none">
         <li *ngFor="let sub_item of category.sub_category">
           <a routerLink="/products/{{ category.name }}/{{ sub_item }}"
             ><i class="icon-chevron-right"></i>{{ sub_item }}
