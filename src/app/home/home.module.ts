@@ -7,9 +7,20 @@ import { HomeComponent } from './home.component';
 import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { ProductsModule } from '../products/products.module';
 
 @NgModule({
-  declarations: [HomeComponent, LoginComponent, CartComponent, ForgetPasswordComponent],
-  imports: [CommonModule, HomeRoutingModule, CommonComponentsModule],
+  declarations: [
+    HomeComponent,
+    LoginComponent,
+    CartComponent,
+    ForgetPasswordComponent,
+  ],
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    CommonComponentsModule,
+    ProductsModule,
+  ],
 })
 export class HomeModule {}

@@ -2,9 +2,10 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from './products.component';
+import { CategorizedProductsComponent } from './categorized-products/categorized-products.component';
 
 const routes: Routes = [
-  { path: ':category/:sub_category', component: ProductsComponent },
+  { path: ':category/:sub_category', component: CategorizedProductsComponent },
   { path: 'product-details', component: ProductDetailsComponent },
 ];
 

@@ -1,3 +1,4 @@
+import { ProductsModel } from './../../models/ProductsModel';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../../../environments/environment';
@@ -19,5 +20,12 @@ export class ProductsService {
         'products/get-categorized-products/?' +
         `category=${category}&sub_category=${sub_category}`
     );
+  }
+
+  getLatestProducts(): Observable<any> {
+    return this.http.get(this.endPoint + 'products/get-latest-products');
+  }
+  getFeaturedProducts(): Observable<any> {
+    return this.http.get(this.endPoint + 'products/get-featured-products');
   }
 }

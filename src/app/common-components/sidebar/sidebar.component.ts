@@ -1,3 +1,4 @@
+import { CategoryModel } from './../../shared/models/CategoryModel';
 import { CategoryService } from './../../shared/services/category/category.service';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -10,7 +11,7 @@ import { Subscription } from 'rxjs';
 export class SidebarComponent implements OnInit {
   openSidebar: string = 'electronics';
   subscription: Subscription;
-  CATEGORY_DATA: any = [];
+  CATEGORY_DATA: CategoryModel[] = [];
   openedSidebarFunction(activeSidebarName: string) {
     this.openSidebar = activeSidebarName;
   }
@@ -18,7 +19,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
     this.subscription = this.categoryService
       .getCategories()
-      .subscribe((data) => {
+      .subscribe((data: CategoryModel[]) => {
         this.CATEGORY_DATA = data;
       });
   }

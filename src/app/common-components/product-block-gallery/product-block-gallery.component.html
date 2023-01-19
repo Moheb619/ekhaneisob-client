@@ -1,0 +1,28 @@
+<div [ngClass]="categorized_product.length > 0 ? 'd-none' : 'noProduct'">
+  No Product to Show
+</div>
+<ul
+  class="thumbnails"
+  [ngClass]="categorized_product.length > 0 ? 'thumbnails' : 'd-none'"
+>
+  <li *ngFor="let product of categorized_product" class="span3">
+    <div class="thumbnail">
+      <a routerLink="/products/product-details"
+        ><img [src]="product.img[imageNumber]" alt=""
+      /></a>
+      <div class="caption">
+        <h5>{{ product.name }}</h5>
+        <p>{{ product.short_desc }}</p>
+        <h4 style="text-align: center">
+          <i class="tag"></i>
+          <a class="btn" routerLink="/products/product-details">
+            <i class="icon-zoom-in"></i
+          ></a>
+          <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a>
+          <a class="btn btn-primary" href="#">৳{{ product.price }}</a>
+        </h4>
+      </div>
+    </div>
+  </li>
+</ul>
+<hr class="soft" />

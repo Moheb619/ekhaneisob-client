@@ -6,7 +6,7 @@
           <a href="register.html"
             ><img
               style="width: 100%"
-              src="./../../assets/themes/images/carousel/1.png"
+              src="./../../assets/themes/images/carousel/1update.png"
               alt="special offers"
           /></a>
           <div class="carousel-caption">
@@ -24,7 +24,7 @@
           <a href="register.html"
             ><img
               style="width: 100%"
-              src="./../../assets/themes/images/carousel/2.png"
+              src="./../../assets/themes/images/carousel/2update.png"
               alt=""
           /></a>
           <div class="carousel-caption">
@@ -40,7 +40,9 @@
       <div class="item">
         <div class="container">
           <a href="register.html"
-            ><img src="./../../assets/themes/images/carousel/3.png" alt=""
+            ><img
+              src="./../../assets/themes/images/carousel/3update.png"
+              alt=""
           /></a>
           <div class="carousel-caption">
             <h4>Second Thumbnail label</h4>
@@ -113,350 +115,31 @@
       <app-sidebar></app-sidebar>
       <!-- Sidebar end=============================================== -->
       <div class="span9">
-        <div class="well well-small">
+        <div class="well well-small'">
           <h4>
             Featured Products
-            <small class="pull-right">200+ featured products</small>
+            <small class="pull-right"
+              >{{ featured_product.length }} featured products</small
+            >
           </h4>
           <div class="row-fluid">
             <div id="featured" class="carousel slide">
               <div class="carousel-inner">
-                <div class="item active">
+                <div
+                  [ngClass]="i == 0 ? 'item active' : 'item'"
+                  *ngFor="let in_row of rowLength; let i = index"
+                >
                   <ul class="thumbnails">
-                    <li class="span3">
+                    <li class="span3" *ngFor="let in_col of fourProduct(i * 4)">
                       <div class="thumbnail">
-                        <i class="tag"></i>
-                        <a routerLink="/products/product-details"
-                          ><img
-                            src="./../../assets/themes/images/products/b1.jpg"
-                            alt=""
+                        <a href="product_details.html"
+                          ><img [src]="in_col.img[0]" alt=""
                         /></a>
                         <div class="caption">
-                          <h5>Product name</h5>
+                          <h5>{{ in_col.name }}</h5>
                           <h4>
-                            <a
-                              class="btn"
-                              routerLink="/products/product-details"
-                              >VIEW</a
-                            >
-                            <span class="pull-right">৳222.00</span>
-                          </h4>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="span3">
-                      <div class="thumbnail">
-                        <i class="tag"></i>
-                        <a routerLink="/products/product-details"
-                          ><img
-                            src="./../../assets/themes/images/products/b2.jpg"
-                            alt=""
-                        /></a>
-                        <div class="caption">
-                          <h5>Product name</h5>
-                          <h4>
-                            <a
-                              class="btn"
-                              routerLink="/products/product-details"
-                              >VIEW</a
-                            >
-                            <span class="pull-right">৳222.00</span>
-                          </h4>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="span3">
-                      <div class="thumbnail">
-                        <i class="tag"></i>
-                        <a routerLink="/products/product-details"
-                          ><img
-                            src="./../../assets/themes/images/products/b3.jpg"
-                            alt=""
-                        /></a>
-                        <div class="caption">
-                          <h5>Product name</h5>
-                          <h4>
-                            <a
-                              class="btn"
-                              routerLink="/products/product-details"
-                              >VIEW</a
-                            >
-                            <span class="pull-right">৳222.00</span>
-                          </h4>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="span3">
-                      <div class="thumbnail">
-                        <i class="tag"></i>
-                        <a routerLink="/products/product-details"
-                          ><img
-                            src="./../../assets/themes/images/products/b4.jpg"
-                            alt=""
-                        /></a>
-                        <div class="caption">
-                          <h5>Product name</h5>
-                          <h4>
-                            <a
-                              class="btn"
-                              routerLink="/products/product-details"
-                              >VIEW</a
-                            >
-                            <span class="pull-right">৳222.00</span>
-                          </h4>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <div class="item">
-                  <ul class="thumbnails">
-                    <li class="span3">
-                      <div class="thumbnail">
-                        <i class="tag"></i>
-                        <a routerLink="/products/product-details"
-                          ><img
-                            src="./../../assets/themes/images/products/5.jpg"
-                            alt=""
-                        /></a>
-                        <div class="caption">
-                          <h5>Product name</h5>
-                          <h4>
-                            <a
-                              class="btn"
-                              routerLink="/products/product-details"
-                              >VIEW</a
-                            >
-                            <span class="pull-right">৳222.00</span>
-                          </h4>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="span3">
-                      <div class="thumbnail">
-                        <i class="tag"></i>
-                        <a routerLink="/products/product-details"
-                          ><img
-                            src="./../../assets/themes/images/products/6.jpg"
-                            alt=""
-                        /></a>
-                        <div class="caption">
-                          <h5>Product name</h5>
-                          <h4>
-                            <a
-                              class="btn"
-                              routerLink="/products/product-details"
-                              >VIEW</a
-                            >
-                            <span class="pull-right">৳222.00</span>
-                          </h4>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="span3">
-                      <div class="thumbnail">
-                        <a routerLink="/products/product-details"
-                          ><img
-                            src="./../../assets/themes/images/products/7.jpg"
-                            alt=""
-                        /></a>
-                        <div class="caption">
-                          <h5>Product name</h5>
-                          <h4>
-                            <a
-                              class="btn"
-                              routerLink="/products/product-details"
-                              >VIEW</a
-                            >
-                            <span class="pull-right">৳222.00</span>
-                          </h4>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="span3">
-                      <div class="thumbnail">
-                        <a routerLink="/products/product-details"
-                          ><img
-                            src="./../../assets/themes/images/products/8.jpg"
-                            alt=""
-                        /></a>
-                        <div class="caption">
-                          <h5>Product name</h5>
-                          <h4>
-                            <a
-                              class="btn"
-                              routerLink="/products/product-details"
-                              >VIEW</a
-                            >
-                            <span class="pull-right">৳222.00</span>
-                          </h4>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <div class="item">
-                  <ul class="thumbnails">
-                    <li class="span3">
-                      <div class="thumbnail">
-                        <a routerLink="/products/product-details"
-                          ><img
-                            src="./../../assets/themes/images/products/9.jpg"
-                            alt=""
-                        /></a>
-                        <div class="caption">
-                          <h5>Product name</h5>
-                          <h4>
-                            <a
-                              class="btn"
-                              routerLink="/products/product-details"
-                              >VIEW</a
-                            >
-                            <span class="pull-right">৳222.00</span>
-                          </h4>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="span3">
-                      <div class="thumbnail">
-                        <a routerLink="/products/product-details"
-                          ><img
-                            src="./../../assets/themes/images/products/10.jpg"
-                            alt=""
-                        /></a>
-                        <div class="caption">
-                          <h5>Product name</h5>
-                          <h4>
-                            <a
-                              class="btn"
-                              routerLink="/products/product-details"
-                              >VIEW</a
-                            >
-                            <span class="pull-right">৳222.00</span>
-                          </h4>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="span3">
-                      <div class="thumbnail">
-                        <a routerLink="/products/product-details"
-                          ><img
-                            src="./../../assets/themes/images/products/11.jpg"
-                            alt=""
-                        /></a>
-                        <div class="caption">
-                          <h5>Product name</h5>
-                          <h4>
-                            <a
-                              class="btn"
-                              routerLink="/products/product-details"
-                              >VIEW</a
-                            >
-                            <span class="pull-right">৳222.00</span>
-                          </h4>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="span3">
-                      <div class="thumbnail">
-                        <a routerLink="/products/product-details"
-                          ><img
-                            src="./../../assets/themes/images/products/1.jpg"
-                            alt=""
-                        /></a>
-                        <div class="caption">
-                          <h5>Product name</h5>
-                          <h4>
-                            <a
-                              class="btn"
-                              routerLink="/products/product-details"
-                              >VIEW</a
-                            >
-                            <span class="pull-right">৳222.00</span>
-                          </h4>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <div class="item">
-                  <ul class="thumbnails">
-                    <li class="span3">
-                      <div class="thumbnail">
-                        <a routerLink="/products/product-details"
-                          ><img
-                            src="./../../assets/themes/images/products/2.jpg"
-                            alt=""
-                        /></a>
-                        <div class="caption">
-                          <h5>Product name</h5>
-                          <h4>
-                            <a
-                              class="btn"
-                              routerLink="/products/product-details"
-                              >VIEW</a
-                            >
-                            <span class="pull-right">৳222.00</span>
-                          </h4>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="span3">
-                      <div class="thumbnail">
-                        <a routerLink="/products/product-details"
-                          ><img
-                            src="./../../assets/themes/images/products/3.jpg"
-                            alt=""
-                        /></a>
-                        <div class="caption">
-                          <h5>Product name</h5>
-                          <h4>
-                            <a
-                              class="btn"
-                              routerLink="/products/product-details"
-                              >VIEW</a
-                            >
-                            <span class="pull-right">৳222.00</span>
-                          </h4>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="span3">
-                      <div class="thumbnail">
-                        <a routerLink="/products/product-details"
-                          ><img
-                            src="./../../assets/themes/images/products/4.jpg"
-                            alt=""
-                        /></a>
-                        <div class="caption">
-                          <h5>Product name</h5>
-                          <h4>
-                            <a
-                              class="btn"
-                              routerLink="/products/product-details"
-                              >VIEW</a
-                            >
-                            <span class="pull-right">৳222.00</span>
-                          </h4>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="span3">
-                      <div class="thumbnail">
-                        <a routerLink="/products/product-details"
-                          ><img
-                            src="./../../assets/themes/images/products/5.jpg"
-                            alt=""
-                        /></a>
-                        <div class="caption">
-                          <h5>Product name</h5>
-                          <h4>
-                            <a
-                              class="btn"
-                              routerLink="/products/product-details"
-                              >VIEW</a
-                            >
-                            <span class="pull-right">৳222.00</span>
+                            <a class="btn" href="product_details.html">VIEW</a>
+                            <span class="pull-right">${{ in_col.price }}</span>
                           </h4>
                         </div>
                       </div>
@@ -480,129 +163,9 @@
           </div>
         </div>
         <h4>Latest Products</h4>
-        <ul class="thumbnails">
-          <li class="span3">
-            <div class="thumbnail">
-              <a routerLink="/products/product-details"
-                ><img src="./../../assets/themes/images/products/6.jpg" alt=""
-              /></a>
-              <div class="caption">
-                <h5>Product name</h5>
-                <p>Lorem Ipsum is simply dummy text.</p>
-
-                <h4 style="text-align: center">
-                  <a class="btn" routerLink="/products/product-details">
-                    <i class="icon-zoom-in"></i
-                  ></a>
-                  <a class="btn" href="#"
-                    >Add to <i class="icon-shopping-cart"></i
-                  ></a>
-                  <a class="btn btn-primary" href="#">৳222.00</a>
-                </h4>
-              </div>
-            </div>
-          </li>
-          <li class="span3">
-            <div class="thumbnail">
-              <a routerLink="/products/product-details"
-                ><img src="./../../assets/themes/images/products/7.jpg" alt=""
-              /></a>
-              <div class="caption">
-                <h5>Product name</h5>
-                <p>Lorem Ipsum is simply dummy text.</p>
-                <h4 style="text-align: center">
-                  <a class="btn" routerLink="/products/product-details">
-                    <i class="icon-zoom-in"></i
-                  ></a>
-                  <a class="btn" href="#"
-                    >Add to <i class="icon-shopping-cart"></i
-                  ></a>
-                  <a class="btn btn-primary" href="#">৳222.00</a>
-                </h4>
-              </div>
-            </div>
-          </li>
-          <li class="span3">
-            <div class="thumbnail">
-              <a routerLink="/products/product-details"
-                ><img src="./../../assets/themes/images/products/8.jpg" alt=""
-              /></a>
-              <div class="caption">
-                <h5>Product name</h5>
-                <p>Lorem Ipsum is simply dummy text.</p>
-                <h4 style="text-align: center">
-                  <a class="btn" routerLink="/products/product-details">
-                    <i class="icon-zoom-in"></i
-                  ></a>
-                  <a class="btn" href="#"
-                    >Add to <i class="icon-shopping-cart"></i
-                  ></a>
-                  <a class="btn btn-primary" href="#">৳222.00</a>
-                </h4>
-              </div>
-            </div>
-          </li>
-          <li class="span3">
-            <div class="thumbnail">
-              <a routerLink="/products/product-details"
-                ><img src="./../../assets/themes/images/products/9.jpg" alt=""
-              /></a>
-              <div class="caption">
-                <h5>Product name</h5>
-                <p>Lorem Ipsum is simply dummy text.</p>
-                <h4 style="text-align: center">
-                  <a class="btn" routerLink="/products/product-details">
-                    <i class="icon-zoom-in"></i
-                  ></a>
-                  <a class="btn" href="#"
-                    >Add to <i class="icon-shopping-cart"></i
-                  ></a>
-                  <a class="btn btn-primary" href="#">৳222.00</a>
-                </h4>
-              </div>
-            </div>
-          </li>
-          <li class="span3">
-            <div class="thumbnail">
-              <a routerLink="/products/product-details"
-                ><img src="./../../assets/themes/images/products/10.jpg" alt=""
-              /></a>
-              <div class="caption">
-                <h5>Product name</h5>
-                <p>Lorem Ipsum is simply dummy text.</p>
-                <h4 style="text-align: center">
-                  <a class="btn" routerLink="/products/product-details">
-                    <i class="icon-zoom-in"></i
-                  ></a>
-                  <a class="btn" href="#"
-                    >Add to <i class="icon-shopping-cart"></i
-                  ></a>
-                  <a class="btn btn-primary" href="#">৳222.00</a>
-                </h4>
-              </div>
-            </div>
-          </li>
-          <li class="span3">
-            <div class="thumbnail">
-              <a routerLink="/products/product-details"
-                ><img src="./../../assets/themes/images/products/11.jpg" alt=""
-              /></a>
-              <div class="caption">
-                <h5>Product name</h5>
-                <p>Lorem Ipsum is simply dummy text.</p>
-                <h4 style="text-align: center">
-                  <a class="btn" routerLink="/products/product-details">
-                    <i class="icon-zoom-in"></i
-                  ></a>
-                  <a class="btn" href="#"
-                    >Add to <i class="icon-shopping-cart"></i
-                  ></a>
-                  <a class="btn btn-primary" href="#">৳222.00</a>
-                </h4>
-              </div>
-            </div>
-          </li>
-        </ul>
+        <app-product-block-gallery
+          [categorized_product]="categorized_product"
+        ></app-product-block-gallery>
       </div>
     </div>
   </div>
