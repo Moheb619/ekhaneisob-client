@@ -1,3 +1,4 @@
+import { SortDataService } from './../../shared/services/sort-data/sort-data.service';
 import { Component } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, Event } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -19,7 +20,8 @@ export class CategorizedProductsComponent {
   constructor(
     private router: Router,
     private activeRoute: ActivatedRoute,
-    private productService: ProductsService
+    private productService: ProductsService,
+    private sortService: SortDataService
   ) {}
 
   ngOnInit(): void {
@@ -52,6 +54,43 @@ export class CategorizedProductsComponent {
       }
     });
   }
+  selectedSortingMethod(event: any) {
+    if (event.target.value) {
+      if (event.target.value === 'atoz') {
+        this.AtoZ();
+      } else if (event.target.value === 'ztoa') {
+        this.ZtoA();
+      } else if (event.target.value === 'hightolow') {
+        this.HightoLow();
+      } else if (event.target.value === 'lowtohigh') {
+        this.LowtoHigh();
+      }
+    }
+  }
+  AtoZ() {
+    this.categorized_product = this.sortService.sortAscendingProductsName(
+      this.categorized_product
+    );
+    console.log(
+      this.sortService.sortAscendingProductsName(this.categorized_product)
+    );
+  }
+  ZtoA() {
+    this.categorized_product = this.sortService.sortDescendingProductsName(
+      this.categorized_product
+    );
+  }
+  HightoLow() {
+    this.categorized_product = this.sortService.sortDescendingProductsPrice(
+      this.categorized_product
+    );
+  }
+  LowtoHigh() {
+    this.categorized_product = this.sortService.sortAscendingProductsPrice(
+      this.categorized_product
+    );
+  }
+
   ngOnDestroy(): void {
     this.subscription.forEach((f) => f.unsubscribe());
   }

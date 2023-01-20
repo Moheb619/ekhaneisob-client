@@ -1,0 +1,8 @@
+.d-none {
+  display: none;
+}
+.noProduct {
+  text-align: center;
+  font-size: larger;
+  font-weight: bolder;
+}

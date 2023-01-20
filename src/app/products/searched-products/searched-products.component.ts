@@ -1,3 +1,4 @@
+import { SortDataService } from './../../shared/services/sort-data/sort-data.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd, Event } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -18,7 +19,8 @@ export class SearchedProductsComponent implements OnInit {
   constructor(
     private router: Router,
     private activeRoute: ActivatedRoute,
-    private productService: ProductsService
+    private productService: ProductsService,
+    private sortService: SortDataService
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
@@ -61,6 +63,42 @@ export class SearchedProductsComponent implements OnInit {
     //     );
     //   }
     // });
+  }
+  selectedSortingMethod(event: any) {
+    if (event.target.value) {
+      if (event.target.value === 'atoz') {
+        this.AtoZ();
+      } else if (event.target.value === 'ztoa') {
+        this.ZtoA();
+      } else if (event.target.value === 'hightolow') {
+        this.HightoLow();
+      } else if (event.target.value === 'lowtohigh') {
+        this.LowtoHigh();
+      }
+    }
+  }
+  AtoZ() {
+    this.categorized_product = this.sortService.sortAscendingProductsName(
+      this.categorized_product
+    );
+    console.log(
+      this.sortService.sortAscendingProductsName(this.categorized_product)
+    );
+  }
+  ZtoA() {
+    this.categorized_product = this.sortService.sortDescendingProductsName(
+      this.categorized_product
+    );
+  }
+  HightoLow() {
+    this.categorized_product = this.sortService.sortDescendingProductsPrice(
+      this.categorized_product
+    );
+  }
+  LowtoHigh() {
+    this.categorized_product = this.sortService.sortAscendingProductsPrice(
+      this.categorized_product
+    );
   }
   ngOnDestroy(): void {
     this.subscription.forEach((f) => f.unsubscribe());

@@ -14,11 +14,12 @@
         <form class="form-horizontal span6">
           <div class="control-group">
             <label class="control-label alignL">Sort By </label>
-            <select>
-              <option>Product name A - Z</option>
-              <option>Product name Z - A</option>
-              <option>Product Stoke</option>
-              <option>Price Lowest first</option>
+            <select (click)="selectedSortingMethod($event)">
+              <option disabled selected value="">Choose Filter</option>
+              <option value="atoz">Product name A - Z</option>
+              <option value="ztoa">Product name Z - A</option>
+              <option value="hightolow">Price Highest first</option>
+              <option value="lowtohigh">Price Lowest first</option>
             </select>
           </div>
         </form>
