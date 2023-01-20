@@ -48,7 +48,6 @@ export class HomeComponent {
     );
   }
   fourProduct(i: any) {
-    console.log(i);
     this.four_product = this.featured_product.slice(i, i + 4);
     return this.four_product;
   }

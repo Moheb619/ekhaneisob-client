@@ -28,4 +28,9 @@ export class ProductsService {
   getFeaturedProducts(): Observable<any> {
     return this.http.get(this.endPoint + 'products/get-featured-products');
   }
+  getSearchedProducts(searchName: string): Observable<any> {
+    return this.http.get(
+      this.endPoint + 'products/get-searched-products/?name=' + searchName
+    );
+  }
 }

@@ -19,7 +19,10 @@
       >
       <ul style="display: none">
         <li *ngFor="let sub_item of category.sub_category">
-          <a routerLink="/products/{{ category.name }}/{{ sub_item }}"
+          <a
+            routerLink="/products/category-based-products/{{ category.name }}/{{
+              sub_item
+            }}"
             ><i class="icon-chevron-right"></i>{{ sub_item }}
           </a>
         </li>
