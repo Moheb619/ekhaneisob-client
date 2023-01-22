@@ -29,11 +29,9 @@ export class SearchedProductsComponent implements OnInit {
 
   ngOnInit(): void {
     // Get Category and Sub Category from URL
-    console.log('Kisu');
     this.categorized_product = [];
     this.activeRoute.queryParams.subscribe((params) => {
       this.name = params['name'];
-      console.log(this.name);
     });
 
     this.imageNumber = Math.floor(Math.random() * 3);
@@ -42,7 +40,6 @@ export class SearchedProductsComponent implements OnInit {
         .getSearchedProducts(this.name)
         .subscribe((data: any) => {
           this.categorized_product = data;
-          console.log(data);
         })
     );
 
@@ -80,9 +77,6 @@ export class SearchedProductsComponent implements OnInit {
   AtoZ() {
     this.categorized_product = this.sortService.sortAscendingProductsName(
       this.categorized_product
-    );
-    console.log(
-      this.sortService.sortAscendingProductsName(this.categorized_product)
     );
   }
   ZtoA() {
