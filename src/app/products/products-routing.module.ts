@@ -7,7 +7,7 @@ import { CategorizedProductsComponent } from './categorized-products/categorized
 
 const routes: Routes = [
   { path: '', component: ProductsComponent },
-  { path: 'product-details', component: ProductDetailsComponent },
+  { path: 'product-details/:id', component: ProductDetailsComponent },
   { path: 'searched-products', component: SearchedProductsComponent },
   {
     path: 'category-based-products/:category/:sub_category',

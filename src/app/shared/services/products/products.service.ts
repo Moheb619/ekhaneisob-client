@@ -33,4 +33,7 @@ export class ProductsService {
       this.endPoint + 'products/get-searched-products/?name=' + searchName
     );
   }
+  getProductDetails(productId: string): Observable<any> {
+    return this.http.get(this.endPoint + 'products/get-product/' + productId);
+  }
 }

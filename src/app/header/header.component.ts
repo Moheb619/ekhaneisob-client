@@ -1,7 +1,7 @@
 import { AuthService } from './../shared/services/auth/auth.service';
 import { ProductsService } from 'src/app/shared/services/products/products.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 @Component({
@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   subscription: Subscription[] = [];
   currentUser: any;
   username: string;
@@ -37,8 +37,6 @@ export class HeaderComponent implements OnInit {
     };
     this.subscription.push(
       this.authService.signIn(loggedInDetails).subscribe((data: any) => {
-        document.cookie = `access_token=${data.access_token}`;
-        document.cookie = `id=${data.id}`;
         this.authService.getUserProfile(data.id).subscribe((res) => {
           localStorage.setItem('user', JSON.stringify(res));
           location.reload();
@@ -52,5 +50,9 @@ export class HeaderComponent implements OnInit {
     document.cookie = 'access_token=';
     document.cookie = 'id=';
     location.reload();
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.forEach((f) => f.unsubscribe());
   }
 }

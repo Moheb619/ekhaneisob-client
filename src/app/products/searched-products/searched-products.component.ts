@@ -30,9 +30,11 @@ export class SearchedProductsComponent implements OnInit {
   ngOnInit(): void {
     // Get Category and Sub Category from URL
     this.categorized_product = [];
-    this.activeRoute.queryParams.subscribe((params) => {
-      this.name = params['name'];
-    });
+    this.subscription.push(
+      this.activeRoute.queryParams.subscribe((params) => {
+        this.name = params['name'];
+      })
+    );
 
     this.imageNumber = Math.floor(Math.random() * 3);
     this.subscription.push(

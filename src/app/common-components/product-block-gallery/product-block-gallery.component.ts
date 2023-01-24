@@ -1,5 +1,5 @@
 import { ProductsModel } from './../../shared/models/ProductsModel';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-product-block-gallery',

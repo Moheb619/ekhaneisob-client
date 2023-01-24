@@ -1,4 +1,7 @@
-<div [ngClass]="categorized_product.length > 0 ? 'd-none' : 'noProduct'">
+<div
+  *ngIf="categorized_product"
+  [ngClass]="categorized_product.length > 0 ? 'd-none' : 'noProduct'"
+>
   No Product to Show
 </div>
 <div *ngFor="let item of categorized_product">
@@ -14,7 +17,9 @@
       <p>
         {{ item.short_desc }}
       </p>
-      <a class="btn btn-small pull-right" routerLink="/products/product-details"
+      <a
+        class="btn btn-small pull-right"
+        routerLink="/products/product-details/{{ item._id }}"
         >View Details</a
       >
       <br class="clr" />
@@ -25,12 +30,14 @@
         <br />
 
         <a
-          routerLink="/products/product-details"
+          routerLink="/products/product-details/{{ item._id }}"
           class="btn btn-large btn-primary"
         >
           Add to <i class="icon-shopping-cart"></i
         ></a>
-        <a routerLink="/products/product-details" class="btn btn-large"
+        <a
+          routerLink="/products/product-details/{{ item._id }}"
+          class="btn btn-large"
           ><i class="icon-zoom-in"></i
         ></a>
       </form>
