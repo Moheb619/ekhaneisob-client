@@ -38,6 +38,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.subscription.push(
       this.authService.signIn(loggedInDetails).subscribe((data: any) => {
         this.authService.getUserProfile(data.id).subscribe((res) => {
+          console.log(res);
           localStorage.setItem('user', JSON.stringify(res));
           location.reload();
         });
