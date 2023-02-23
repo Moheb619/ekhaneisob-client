@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -17,11 +18,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private router: Router,
     private activateRoute: ActivatedRoute,
     private productsService: ProductsService,
-    private authService: AuthService
+    private authService: AuthService,
+    private cookieService: CookieService
   ) {}
   ngOnInit(): void {
-    const user = localStorage.getItem('user');
-    this.currentUser = localStorage.getItem('user') ? JSON.parse(user!) : '';
+    if (localStorage.getItem('id') && !this.cookieService.get('access_token')) {
+      location.reload();
+    }
+    if (localStorage.getItem('id')) {
+      const id = localStorage.getItem('id');
+      this.authService.getUserProfile(id).subscribe((res) => {
+        this.currentUser = res;
+      });
+    }
   }
 
   submitSearch(searchForm: NgForm) {
@@ -38,8 +47,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.subscription.push(
       this.authService.signIn(loggedInDetails).subscribe((data: any) => {
         this.authService.getUserProfile(data.id).subscribe((res) => {
-          console.log(res);
-          localStorage.setItem('user', JSON.stringify(res));
+          this.currentUser = res;
+          localStorage.setItem('id', res._id);
           location.reload();
         });
       })
@@ -48,9 +57,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   submitLogout() {
     localStorage.clear();
     sessionStorage.clear();
-    document.cookie = 'access_token=';
-    document.cookie = 'id=';
-    location.reload();
+    this.subscription.push(
+      this.authService.doLogout().subscribe((data: any) => {
+        location.reload();
+      })
+    );
   }
 
   ngOnDestroy(): void {

@@ -48,12 +48,20 @@ export class AuthService {
   }
 
   doLogout() {
-    let removeToken = localStorage.removeItem('access_token');
+    // let removeToken = localStorage.removeItem('access_token');
+    let api = `${this.endPoint}auth/logout`;
+    return this.http.get(api, {
+      headers: this.headers,
+      withCredentials: true,
+    });
   }
 
   // UserModel profile
-  getUserProfile(id: string): Observable<any> {
+  getUserProfile(id: any): Observable<any> {
     let api = `${this.endPoint}users/get-user/${id}`;
-    return this.http.get(api);
+    return this.http.get(api, {
+      headers: this.headers,
+      withCredentials: true,
+    });
   }
 }
