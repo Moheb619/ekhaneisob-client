@@ -16,7 +16,12 @@
       /></a>
       <div class="caption">
         <h5>{{ product.name }}</h5>
-        <p>{{ product.short_desc }}</p>
+        <p *ngIf="product.short_desc.length <= 42">
+          {{ product.short_desc }}
+        </p>
+        <p *ngIf="product.short_desc.length > 42">
+          {{ product.short_desc.slice(0, 40) + "..." }}
+        </p>
         <h4 style="text-align: center">
           <i class="tag"></i>
           <a

@@ -6,3 +6,7 @@
   font-size: larger;
   font-weight: bolder;
 }
+img {
+  height: 8rem;
+  width: auto;
+}

@@ -2,7 +2,7 @@
   <ul id="sideManu" class="nav nav-tabs nav-stacked">
     <li
       *ngFor="let category of CATEGORY_DATA"
-      [ngClass]="openSidebar == category.name ? 'open' : ''"
+      [ngClass]="{ open: openSidebar == category.name }"
     >
       <a (click)="openedSidebarFunction(category.name)">
         {{ category.name }}
@@ -29,7 +29,7 @@
   <br />
   <div class="thumbnail">
     <img
-      src="./../../../assets/themes/images/payment_methods.png"
+      src="./../../../assets/themes/images/payment_methods.jpeg"
       title="Bootshop Payment Methods"
       alt="Payments Methods"
     />
