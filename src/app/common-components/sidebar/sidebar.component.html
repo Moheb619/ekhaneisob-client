@@ -16,7 +16,11 @@
             routerLink="/products/category-based-products/{{ category.name }}/{{
               sub_item
             }}"
-            ><i class="icon-chevron-right"></i>{{ sub_item }}
+            ><i
+              class="icon-chevron-right"
+              [ngClass]="{ 'rotated-down': sub_item === sidebarSubCategory }"
+            ></i
+            >{{ sub_item }}
           </a>
         </li>
       </ul>

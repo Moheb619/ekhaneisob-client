@@ -1,6 +1,6 @@
 import { SortDataService } from './../../shared/services/sort-data/sort-data.service';
 import { Component } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router, Event } from '@angular/router';
+import { ActivatedRoute, Router, Event, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProductsModel } from 'src/app/shared/models/ProductsModel';
 import { ProductsService } from 'src/app/shared/services/products/products.service';

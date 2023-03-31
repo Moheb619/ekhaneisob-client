@@ -5,3 +5,10 @@
 a {
   cursor: pointer;
 }
+a:hover {
+  text-decoration: none;
+}
+
+.rotated-down {
+  transform: rotate(90deg);
+}
