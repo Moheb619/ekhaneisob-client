@@ -24,13 +24,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ) {}
   ngOnInit(): void {
     // Get UserProfile using Access Token
-    this.authService.getTokenValue().subscribe((data: any) => {
-      if (data.user.id) {
-        this.authService.getUserProfile(data.user.id).subscribe((user: any) => {
-          this.currentUser = user;
-        });
-      }
-    });
+    if (localStorage.getItem('id')) {
+      this.subscription.push(
+        this.authService
+          .getUserProfile(localStorage.getItem('id'))
+          .subscribe((data: any) => {
+            this.currentUser = data;
+          })
+      );
+    }
   }
 
   submitSearch(searchForm: NgForm) {
@@ -48,7 +50,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.authService.signIn(loggedInDetails).subscribe((data: any) => {
         this.authService.getUserProfile(data.id).subscribe((res) => {
           this.currentUser = res;
-          // localStorage.setItem('id', res._id);
+          localStorage.setItem('id', res._id);
           this.location.go('/');
           window.location.reload();
         });

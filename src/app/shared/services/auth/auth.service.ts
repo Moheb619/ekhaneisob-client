@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { UserModel } from './../../models/UserModel';
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable, throwError } from 'rxjs';
+import { catchError, map, Observable, Subscription, throwError } from 'rxjs';
 import {
   HttpClient,
   HttpErrorResponse,
@@ -39,14 +39,6 @@ export class AuthService {
   }
   register(user: any) {
     return this.http.post<any>(`${this.endPoint}auth/register`, user, {
-      headers: this.headers,
-      withCredentials: true,
-    });
-  }
-
-  getTokenValue() {
-    let api = `${this.endPoint}auth/get-token-value`;
-    return this.http.get(api, {
       headers: this.headers,
       withCredentials: true,
     });

@@ -1,0 +1,13 @@
+.cart__form__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart__input__field {
+  padding: 10px;
+}
+.cart__input__field--btn {
+  display: flex;
+  align-items: flex-end;
+  margin: 0 auto;
+}

@@ -76,53 +76,64 @@
           <div class="span6" *ngIf="product_details">
             <h3>{{ product_details.name }}</h3>
             <hr class="soft" />
-            <form class="form-horizontal qtyFrm">
-              <div class="control-group">
-                <label class="control-label"
-                  ><span>৳{{ product_details.price }}</span></label
-                >
-                <div class="controls">
-                  <input type="number" class="span1" placeholder="Qty." />
-                  <button
-                    type="submit"
-                    class="btn btn-large btn-primary pull-right"
+            <form
+              class="form-horizontal qtyFrm"
+              #cartForm="ngForm"
+              (ngSubmit)="submitCartForm(cartForm, product_details._id)"
+            >
+              <div class="control-group cart__form__container">
+                <div class="cart__input__field">
+                  <label class="control-label"
+                    ><span>৳{{ product_details.price }}</span></label
                   >
-                    Add to cart <i class="icon-shopping-cart"></i>
-                  </button>
+                  <div class="controls">
+                    <input
+                      type="number"
+                      placeholder="Quantity."
+                      name="cartQuantity"
+                      ngModel
+                      required
+                    />
+                  </div>
+                </div>
+                <div style="display: flex">
+                  <div *ngIf="size" class="cart__input__field">
+                    <label class="control-label"><span>Size</span></label>
+                    <div class="controls">
+                      <select class="span2" name="cartSize" ngModel>
+                        <option *ngFor="let sz of size">
+                          {{ sz }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div *ngIf="color" class="cart__input__field">
+                    <label class="control-label"><span>Color</span></label>
+                    <div class="controls">
+                      <select class="span2" name="cartColor" ngModel>
+                        <option *ngFor="let col of color">{{ col }}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div
+                    class="controls cart__input__field cart__input__field--btn"
+                  >
+                    <button
+                      type="submit"
+                      class="btn btn-large btn-primary pull-right"
+                    >
+                      Add to cart <i class="icon-shopping-cart"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </form>
 
             <hr class="soft" />
-            <form class="form-horizontal qtyFrm">
-              <div
-                class="control-group"
-                style="display: flex; justify-content: space-between"
-              >
-                <div *ngIf="size">
-                  <label class="control-label"><span>Size</span></label>
-                  <div class="controls">
-                    <select class="span2">
-                      <option *ngFor="let sz of size">
-                        {{ sz }}
-                      </option>
-                    </select>
-                  </div>
-                </div>
-                <div *ngIf="color">
-                  <label class="control-label"><span>Color</span></label>
-                  <div class="controls">
-                    <select class="span2">
-                      <option *ngFor="let col of color">{{ col }}</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </form>
             <!-- <hr class="soft clr" />
-            <a class="btn btn-small pull-right" href="#detail">More Details</a>
-            <br class="clr" />
-            <a href="#" name="detail"></a>
+              <a class="btn btn-small pull-right" href="#detail">More Details</a>
+              <br class="clr" />
+              <a href="#" name="detail"></a>
             <hr class="soft" /> -->
           </div>
 

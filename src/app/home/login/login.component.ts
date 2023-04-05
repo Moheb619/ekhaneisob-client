@@ -24,7 +24,7 @@ export class LoginComponent {
       this.authService.signIn(loggedInDetails).subscribe((data: any) => {
         this.authService.getUserProfile(data.id).subscribe((res) => {
           this.currentUser = res;
-          // localStorage.setItem('id', res._id);
+          localStorage.setItem('id', res._id);
           this.location.go('/');
           window.location.reload();
         });
