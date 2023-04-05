@@ -37,9 +37,19 @@ export class AuthService {
     //   });
     // });
   }
+  register(user: any) {
+    return this.http.post<any>(`${this.endPoint}auth/register`, user, {
+      headers: this.headers,
+      withCredentials: true,
+    });
+  }
 
-  getToken() {
-    return localStorage.getItem('access_token');
+  getTokenValue() {
+    let api = `${this.endPoint}auth/get-token-value`;
+    return this.http.get(api, {
+      headers: this.headers,
+      withCredentials: true,
+    });
   }
 
   getIsLoggedIn(): boolean {

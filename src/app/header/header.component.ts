@@ -1,10 +1,11 @@
 import { AuthService } from './../shared/services/auth/auth.service';
 import { ProductsService } from 'src/app/shared/services/products/products.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -16,21 +17,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
   username: string;
   constructor(
     private router: Router,
-    private activateRoute: ActivatedRoute,
     private productsService: ProductsService,
     private authService: AuthService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private location: Location
   ) {}
   ngOnInit(): void {
-    if (localStorage.getItem('id') && !this.cookieService.get('access_token')) {
-      location.reload();
-    }
-    if (localStorage.getItem('id')) {
-      const id = localStorage.getItem('id');
-      this.authService.getUserProfile(id).subscribe((res) => {
-        this.currentUser = res;
-      });
-    }
+    // Get UserProfile using Access Token
+    this.authService.getTokenValue().subscribe((data: any) => {
+      if (data.user.id) {
+        this.authService.getUserProfile(data.user.id).subscribe((user: any) => {
+          this.currentUser = user;
+        });
+      }
+    });
   }
 
   submitSearch(searchForm: NgForm) {
@@ -48,8 +48,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.authService.signIn(loggedInDetails).subscribe((data: any) => {
         this.authService.getUserProfile(data.id).subscribe((res) => {
           this.currentUser = res;
-          localStorage.setItem('id', res._id);
-          location.reload();
+          // localStorage.setItem('id', res._id);
+          this.location.go('/');
+          window.location.reload();
         });
       })
     );

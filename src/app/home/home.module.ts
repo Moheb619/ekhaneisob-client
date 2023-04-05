@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ProductsModule } from '../products/products.module';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -21,6 +21,7 @@ import { ProductsModule } from '../products/products.module';
     HomeRoutingModule,
     CommonComponentsModule,
     ProductsModule,
+    FormsModule,
   ],
 })
 export class HomeModule {}

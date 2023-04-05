@@ -99,9 +99,9 @@
                 class="control-group"
                 style="display: flex; justify-content: space-between"
               >
-                <div *ngIf="product_details.product_more_details.size">
+                <div *ngIf="size">
                   <label class="control-label"><span>Size</span></label>
-                  <div class="controls" *ngIf="size">
+                  <div class="controls">
                     <select class="span2">
                       <option *ngFor="let sz of size">
                         {{ sz }}

@@ -16,7 +16,10 @@
           <div class="span4">
             <div class="well">
               <h5>CREATE YOUR ACCOUNT</h5>
-              <form action="register.html">
+              <form
+                #registerForm="ngForm"
+                (ngSubmit)="submitRegisterForm(registerForm)"
+              >
                 <div class="control-group">
                   <label class="control-label" for="inputFullName0"
                     >Full Name</label
@@ -27,6 +30,8 @@
                       type="text"
                       id="inputFullName0"
                       placeholder="Full Name"
+                      name="registerFullName"
+                      ngModel
                     />
                   </div>
                 </div>
@@ -40,6 +45,23 @@
                       type="text"
                       id="inputEmail0"
                       placeholder="Email"
+                      name="registerEmail"
+                      ngModel
+                    />
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label" for="inputPhone0"
+                    >Phone Number</label
+                  >
+                  <div class="controls">
+                    <input
+                      class="span3"
+                      type="text"
+                      id="inputPhone0"
+                      placeholder="Phone Number"
+                      name="registerPhone"
+                      ngModel
                     />
                   </div>
                 </div>
@@ -53,6 +75,8 @@
                       type="password"
                       id="inputPassword0"
                       placeholder="Password"
+                      name="registerPassword"
+                      ngModel
                     />
                   </div>
                 </div>
@@ -68,7 +92,7 @@
           <div class="span4">
             <div class="well">
               <h5>ALREADY REGISTERED ?</h5>
-              <form>
+              <form #loginForm="ngForm" (ngSubmit)="submitLoginForm(loginForm)">
                 <div class="control-group">
                   <label class="control-label" for="inputEmail1">Email</label>
                   <div class="controls">
@@ -77,6 +101,8 @@
                       type="text"
                       id="inputEmail1"
                       placeholder="Email"
+                      name="loginEmail"
+                      ngModel
                     />
                   </div>
                 </div>
@@ -90,6 +116,8 @@
                       class="span3"
                       id="inputPassword1"
                       placeholder="Password"
+                      name="loginPassword"
+                      ngModel
                     />
                   </div>
                 </div>
