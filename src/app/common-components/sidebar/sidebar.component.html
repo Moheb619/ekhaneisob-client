@@ -1,5 +1,5 @@
 <div id="sidebar" class="span3">
-  <ul id="sideManu" class="nav nav-tabs nav-stacked">
+  <ul id="sideMenu" class="nav nav-tabs nav-stacked">
     <li
       *ngFor="let category of CATEGORY_DATA"
       [ngClass]="{ open: openSidebar == category.name }"
@@ -10,7 +10,7 @@
           >[{{ category.sub_category.length }}]</span
         ></a
       >
-      <ul style="display: none">
+      <ul>
         <li *ngFor="let sub_item of category.sub_category">
           <a
             routerLink="/products/category-based-products/{{ category.name }}/{{

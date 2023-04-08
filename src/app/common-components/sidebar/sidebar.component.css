@@ -1,5 +1,15 @@
+#sidebar #sideMenu ul {
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s, visibility 0s linear 0.5s, max-height 0.7s;
+}
 .open > ul {
-  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  max-height: 1000px !important; /* set to a value greater than the expected height */
+  transition-delay: 0s !important;
 }
 
 a {
